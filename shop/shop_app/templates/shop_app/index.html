@@ -11,9 +11,10 @@
     </div>
     <div class="features main_page_style">
         {% for prod in goods %}
-            <p class="main_page_style2">{{ prod }}</p>
+            <p class="main_page_style2">{{ prod }}<br><img src="{{ prod.file.url }}" style="max-height: 200px;"></p>
         {% empty %}
-            <p>No products added yet :(</p>
+            <p class="features">No products added yet :(</p>
         {% endfor %}
     </div>
+
 {% endblock content %}

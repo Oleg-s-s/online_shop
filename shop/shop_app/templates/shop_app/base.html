@@ -12,11 +12,11 @@
         <div class="eshop_margin"></div>
         <img src="{% static 'shop_app/img/main_logo.png' %}" alt="logo" style="height: 50px;">
         <span class="logo">Eshop</span>
-        <h3>Navigation<img src="{% static 'shop_app/img/navigation.png' %}" alt="logo" style="height: 25px; margin-left: 10px;"></h3>
+        <h3>Navigation<img src="{% static 'shop_app/img/navigation.png' %}" style="height: 25px; margin-left: 10px;"></h3>
         <ul>
-            <a class="navig" href="{% url 'shop_app:index' %}"><li><img src="{% static 'shop_app/img/main_page.png' %}" alt="logo" style="height: 20px;">   Main Page</li></a>
-            <a class="navig" href="{% url 'shop_app:catalog' %}"><li><img src="{% static 'shop_app/img/catalog.png' %}" alt="logo" style="height: 20px;">   Catalog</li></a>
-            <a class="navig" href="{% url 'shop_app:about' %}"><li><img src="{% static 'shop_app/img/about.png' %}" alt="logo" style="height: 20px;">   About</li></a>
+            <a class="navig" href="{% url 'shop_app:index' %}"><li><img src="{% static 'shop_app/img/main_page.png' %}" style="height: 20px;">   Main Page</li></a>
+            <a class="navig" href="{% url 'shop_app:catalog' %}"><li><img src="{% static 'shop_app/img/catalog.png' %}" style="height: 20px;">   Catalog</li></a>
+            <a class="navig" href="{% url 'shop_app:about' %}"><li><img src="{% static 'shop_app/img/about.png' %}" style="height: 20px;">   About</li></a>
             {% if user.is_authenticated %}
                 <a class="navig" href="{% url 'shop_app:new_goods' %}"><li><button class="btn"><i>Add product</i></button></li></a>
                 <p class="navig_login">Welcome, {{ user.username }}</p>
