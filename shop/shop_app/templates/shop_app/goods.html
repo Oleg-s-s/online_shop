@@ -1,0 +1,11 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+    <div class="product">
+        <h3>Product: {{goods}}</h3>
+        <p>Description : {{goods.description}}</p>
+        <a href="{% url 'shop_app:catalog' %}"><button>Back</button></a>
+    </div>
+{% endblock content %}

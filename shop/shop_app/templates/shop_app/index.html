@@ -1,0 +1,19 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="features">
+        <h1>Welcome to {{title}}</h1>
+        <h3>Look what we have new here</h3>
+    </div>
+    <div class="features main_page_style">
+        {% for prod in goods %}
+            <p class="main_page_style2">{{ prod }}</p>
+        {% empty %}
+            <p>No products added yet :(</p>
+        {% endfor %}
+    </div>
+{% endblock content %}

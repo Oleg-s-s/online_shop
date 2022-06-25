@@ -1,0 +1,16 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+
+    <div class="features">
+        <h3>List of all our products</h3>
+        {% for prod in goods %}
+                <a href="{% url 'shop_app:goods' prod.id %}">{{ prod }}</a></br></br>
+        {% empty %}
+            <p>No products added yet :(</p>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

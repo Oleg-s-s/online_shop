@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'shop_app/css/main.css' %}">
+</head>
+<body>
+    <aside>
+        <div class="eshop_margin"></div>
+        <img src="{% static 'shop_app/img/main_logo.png' %}" alt="logo" style="height: 50px;">
+        <span class="logo">Eshop</span>
+        <h3>Navigation<img src="{% static 'shop_app/img/navigation.png' %}" alt="logo" style="height: 25px; margin-left: 10px;"></h3>
+        <ul>
+            <a class="navig" href="{% url 'shop_app:index' %}"><li><img src="{% static 'shop_app/img/main_page.png' %}" alt="logo" style="height: 20px;">   Main Page</li></a>
+            <a class="navig" href="{% url 'shop_app:catalog' %}"><li><img src="{% static 'shop_app/img/catalog.png' %}" alt="logo" style="height: 20px;">   Catalog</li></a>
+            <a class="navig" href="{% url 'shop_app:about' %}"><li><img src="{% static 'shop_app/img/about.png' %}" alt="logo" style="height: 20px;">   About</li></a>
+            {% if user.is_authenticated %}
+                <a class="navig" href="{% url 'shop_app:new_goods' %}"><li><button class="btn"><i>Add product</i></button></li></a>
+                <p class="navig_login">Welcome, {{ user.username }}</p>
+                <a class="navig_login2" href="{% url 'users:logout' %}">Log out</a>
+                {% else %}
+                <a class="navig" href="{% url 'users:login' %}"><li><button class="btn"><i>Login</i></button></li></a>
+                <a class="navig" href="{% url 'users:register' %}"><li><button class="btn"><i>Register</i></button></li></a>
+            {% endif %}
+            </ul>
+
+    </aside>
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+</body>
+</html>

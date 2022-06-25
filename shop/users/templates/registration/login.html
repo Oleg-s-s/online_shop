@@ -1,0 +1,26 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <div class="login_space"></div>
+    <h1 class="features">Log in</h1>
+    {% if form.errors %}
+        <p class="features">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <div class="login_space"></div>
+    <form method="post" class="features" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        <p class="features">
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+        </p>
+        <p>
+            <label for="id_password">Password:</label>
+            <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+        </p>
+        <button name="submit">Log in</button>
+        <input type="hidden" name="next" value="{% url 'shop_app:index' %}" />
+    </form>
+
+{% endblock content %}

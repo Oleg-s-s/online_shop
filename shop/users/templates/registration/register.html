@@ -1,0 +1,16 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+
+    <h1 class="register">Registration</h1>
+    <form class="register" method="post" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <button name="submit">register</button>
+        <input type="hidden" name="text" value="{% url 'shop_app:index' %}" />
+    </form>
+
+{% endblock content %}
