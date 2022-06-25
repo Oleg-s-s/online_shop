@@ -1,0 +1,26 @@
+{% extends 'shop_app/base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+
+    <div class="features">
+        <h3 style="margin-right: 10%;">Products in your cart</h3>
+        <div>
+            {% for prod in goods %}
+                {% if prod.basket == 1 %}
+                    <a href="{% url 'shop_app:goods' prod.id %}" style="margin-right: 10%;">{{ prod }}</a><br>
+                    <img src="{{ prod.file.url }}" style="max-height: 150px;"><br><br><br>
+                {% endif %}        
+            {% empty %}
+                <p>No products added yet :(</p>
+            {% endfor %}
+        </div>
+            <a href="{% url 'shop_app:cart' %}" style="margin-right: 21%;">
+                <form method='get' action='#'>
+                    <input type="submit" value="clear_cart" name="clear_cart"/></a>
+                </form>
+            </a>
+    </div>
+
+{% endblock content %}

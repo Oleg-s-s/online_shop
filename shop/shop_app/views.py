@@ -41,8 +41,23 @@ def new_goods(request):
 
 def goods(request, goods_id):
     goods =Goods.objects.get(id=goods_id)
+    if request.GET.get('Buy'):
+        goods.basket = True
+        goods.save()
     data = {
         'goods': goods,
         'title': goods,
     }
     return render(request, 'shop_app/goods.html', data)
+
+def cart(request):
+    goods = Goods.objects.order_by('date_added')
+    if request.GET.get('clear_cart'):
+        for prod in goods:
+            prod.basket = False
+            prod.save()
+    data = {
+        'title': 'Cart',
+        'goods': goods,
+    }
+    return render(request, 'shop_app/cart.html', data)

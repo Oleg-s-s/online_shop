@@ -4,13 +4,22 @@
 
 {% block content %}
     <div class="features">
-        <h3>Add new product</h3>
-
-        <form action="{% url 'shop_app:new_goods' %}" method="post", enctype="multipart/form-data">
+        <h3 style="margin-left: 19%;">Add new product</h3>
             {% csrf_token %}
-            {{form.as_p}}
-            <button name="submit">Add product</button>
-        </form>
+            <form action="/new_goods/" method="post" ,="" enctype="multipart/form-data">
+                <input type="hidden" name="csrfmiddlewaretoken" value="cSP9a6pocdBPt7M0J957CO18oW7V8niArG50OFZgMtZCMDca9wLpBUqcKg2CtZXu">
+                <p>Name: 
+        <input type="text" name="name" maxlength="50" required="" id="id_name">
+      </p>
+      <p>Description<br>
+        <textarea name="description" cols="40" rows="10" maxlength="200" required="" id="id_description"></textarea>
+      </p>
+      <p>
+        <label for="id_file">File:</label>
+        <input type="file" name="file" accept="image/*" required="" id="id_file">
+      </p>
+      <button name="submit" style="margin-left: 9%;">Add product</button>
+            </form>
     </div>
     
 

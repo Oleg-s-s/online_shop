@@ -7,6 +7,20 @@
         <h3>Product: {{goods}}</h3>
         <img src="{{ goods.file.url }}" style="max-height: 300px;">
         <p>Description : {{goods.description}}</p>
-        <a href="{% url 'shop_app:catalog' %}"><button>Back</button></a>
+        <a href="{% url 'shop_app:catalog' %}"><button>Back to catalog</button></a><br><br>
+        {% if user.is_authenticated %}
+            {% if goods.basket == 1 %}
+                <p>In your cart</p>
+            {% else %}
+                <a href="{% url 'shop_app:catalog' %}">
+                    <form method='get' action='#'>
+                        <input type="submit" value="Buy" name="Buy"/></a><br><br>
+                    </form>
+                </a>
+            {% endif %}
+        {% endif %}
+        {% if not user.is_authenticated %}
+            <a href="{% url 'users:login' %}"><button><i>Login</i></button></a>
+        {% endif %}
     </div>
 {% endblock content %}

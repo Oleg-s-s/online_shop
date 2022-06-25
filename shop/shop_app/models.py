@@ -6,6 +6,7 @@ class Goods(models.Model):
     description = models.TextField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
     file = models.ImageField(upload_to="files/", null=False)
+    basket = models.BooleanField(default=False)
     
     def __str__(self):
         return self.name

@@ -18,6 +18,7 @@
             <a class="navig" href="{% url 'shop_app:catalog' %}"><li><img src="{% static 'shop_app/img/catalog.png' %}" style="height: 20px;">   Catalog</li></a>
             <a class="navig" href="{% url 'shop_app:about' %}"><li><img src="{% static 'shop_app/img/about.png' %}" style="height: 20px;">   About</li></a>
             {% if user.is_authenticated %}
+                <a class="navig" href="{% url 'shop_app:cart' %}"><li><img src="{% static 'shop_app/img/cart.png' %}" style="height: 20px;">   Cart</li></a>
                 <a class="navig" href="{% url 'shop_app:new_goods' %}"><li><button class="btn"><i>Add product</i></button></li></a>
                 <p class="navig_login">Welcome, {{ user.username }}</p>
                 <a class="navig_login2" href="{% url 'users:logout' %}">Log out</a>
