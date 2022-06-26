@@ -5,7 +5,7 @@
 {% block content %}
 
     <div class="features">
-        <h3 style="margin-right: 10%;">Products in your cart</h3>
+        <h3>Products in your cart</h3>
         <div>
             {% for prod in goods %}
                 {% if prod.basket == 1 %}
@@ -18,7 +18,7 @@
         </div>
             <a href="{% url 'shop_app:cart' %}" style="margin-right: 21%;">
                 <form method='get' action='#'>
-                    <input type="submit" value="clear_cart" name="clear_cart"/></a>
+                    <input style="margin-left: 10%;" type="submit" value="clear_cart" name="clear_cart"/></a>
                 </form>
             </a>
     </div>
