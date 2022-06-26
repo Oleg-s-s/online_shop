@@ -5,8 +5,8 @@
 {% block content %}
     <div class="features">
         <h3 style="margin-left: 19%;">Add new product</h3>
-            {% csrf_token %}
             <form action="/new_goods/" method="post" ,="" enctype="multipart/form-data">
+                {% csrf_token %}
                 <input type="hidden" name="csrfmiddlewaretoken" value="cSP9a6pocdBPt7M0J957CO18oW7V8niArG50OFZgMtZCMDca9wLpBUqcKg2CtZXu">
                 <p>Name: 
         <input type="text" name="name" maxlength="50" required="" id="id_name">
